@@ -106,11 +106,35 @@ background-size: 25%
 ---
 # Probability *and* Frequency????
 
-- Jaynes notes that relative frequencies obeys the logical rules of probabability
+- Jaynes notes: relative frequencies obey the  rules of probabability
 
-- $\rightarrow$ thus application of probability theory to frequencies is correct (and sucessful in practice)!
+- `⇒` application of probability theory to frequencies is correct (and successful)!
 
 - The logical error of ortodox statistics is the conclusion that the theory *only* applies to frequencies
+
+---
+# The logic of repeated experiments
+
+We have already observed the outcoume of `\(n\)` repeated experiments `\(r_k\)`. What do we know about `\(r_{n+1}\)` ?
+
+$$ \Pr(r_{n+1} \mid r_1, \ldots, r_n) = ???  $$
+
+In jaynes logical formation, nothing unless we supply a prior state of information `\(I\)`
+
+$$ \Pr(r_{n+1} \mid I, r_1, \ldots, r_n) = f(...)  $$
+
+---
+# `\(I_0\)`: The poorly informed robot
+
+Consider we know nothing about the $n$ experiments other than they having `\(m\)` outcomes each (thus no information about how the experiments being related). By cominatorial reasoning, we have `\(m^N\)` outcomes for the entire sequence.
+
+By the principle of indifference:
+
+$$ \Pr(r_1,r_2, \ldots, r_n \mid I_0) = \frac{1}{m^N} $$
+
+and thus for a specific trial:
+
+$$ \Pr(r_{n+1}\mid r_1,r_2, \ldots, r_n, I_0) = \frac{1}{m} $$
 
 ---
 # Thanks!
