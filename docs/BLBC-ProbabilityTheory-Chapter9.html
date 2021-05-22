@@ -177,6 +177,28 @@ NOTE: let `\(g_i=E_i\)` and voila, statistical mechanics
 
 $$ G = \sum_{k=1}^n g(r_k) $$
 
+- Let us allow the total number of trials `\(n\)` to vary, and define
+
+$$ M(n,G) = \textrm{ number of sequences of length $n$ with total value G } $$
+
+- It thus follows
+
+$$ M(n,G) = \sum_{j=1}^{m} M(n-1, G-g_j) $$
+
+$$ M(n,G) = e^{(\alpha n + \lambda G)} \quad\textrm{only if}\quad e^{\alpha} = \sum_{j=1}^{m} e^{-\lambda g_j} \equiv Z(\lambda)$$
+
+---
+# Use of the partition function
+
+$$ Z^n(\lambda) = \sum_{\{r_i\}} e^{-\lambda \sum_i g(r_i)} = \sum_G e^{-\lambda G} M(n,G) $$
+
+- Thus when `\(Z^n(\lambda)\)` is easy to work with, we can identify `\(M(n,G)\)` as the co-efficient for `\(e^{-\lambda G}\)` in `\(Z^n\)` !
+
+---
+# Some notes on logical induction
+
+POPPLERN
+
 
 ---
 # Some concluding thoughts
