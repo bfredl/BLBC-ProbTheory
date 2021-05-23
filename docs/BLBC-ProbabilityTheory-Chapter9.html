@@ -99,11 +99,6 @@ background-size: 25%
 #Chapter 9. Repetetive Experiments - Probability and Frequency
 
 .pull-left[
-- babba
-
-- babla
-
-- aha!
 
 
 
@@ -128,6 +123,10 @@ $$ \Pr(r_{n+1} \mid r_1, \ldots, r_n) = ???  $$
 In jaynes logical formation, nothing unless we supply a prior state of information `\(I\)`
 
 `$$ \Pr(r_1, \ldots, r_n, r_{n+1} \mid I) = f(r_1, \ldots, r_n, r_{n+1})  $$`
+
+In which case the sub and product rules gives
+
+`$$ \Pr(r_{n+1} \mid I, r_1, \ldots, r_n) = \frac{f(r_1, \ldots, r_n, r_{n+1})}{\sum_{r=1}^{m}f(r_1, \ldots, r_n, r)}  $$`
 
 ---
 # `\(I_0\)`: The poorly informed robot
@@ -225,6 +224,22 @@ RED: But this is just the binomial distribution!
 
 POPPLERN
 
+---
+# Probability and frequency: Jaynes' conclusions
+
+![two rides](BLBC-ProbabilityTheory-Chapter9_files/probfreq1.png)
+
+- minor remark: MCMC does *estimate probability* in some sense (but for limited compute time rather than limited data/information!)
+
+![two rides](BLBC-ProbabilityTheory-Chapter9_files/probfreq2.png)
+
+---
+# Bayesian vs frequentist reasoning?
+
+![helloo](BLBC-ProbabilityTheory-Chapter9_files/bitter1.png)
+![helloo](BLBC-ProbabilityTheory-Chapter9_files/bitter2.png)
+
+- **As in most research we have *more information* that just frequencies!**
 
 ---
 # Some concluding thoughts
