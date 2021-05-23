@@ -127,7 +127,7 @@ $$ \Pr(r_{n+1} \mid r_1, \ldots, r_n) = ???  $$
 
 In jaynes logical formation, nothing unless we supply a prior state of information `\(I\)`
 
-$$ \Pr(r_{n+1} \mid I, r_1, \ldots, r_n) = f(...)  $$
+`$$ \Pr(r_1, \ldots, r_n, r_{n+1} \mid I) = f(r_1, \ldots, r_n, r_{n+1})  $$`
 
 ---
 # `\(I_0\)`: The poorly informed robot
@@ -193,6 +193,32 @@ $$ M(n,G) = e^{(\alpha n + \lambda G)} \quad\textrm{only if}\quad e^{\alpha} = \
 $$ Z^n(\lambda) = \sum_{\{r_i\}} e^{-\lambda \sum_i g(r_i)} = \sum_G e^{-\lambda G} M(n,G) $$
 
 - Thus when `\(Z^n(\lambda)\)` is easy to work with, we can identify `\(M(n,G)\)` as the co-efficient for `\(e^{-\lambda G}\)` in `\(Z^n\)` !
+
+---
+# use Z to reason with the poor robot
+
+- Example: Divide the `\(m\)` outomes into `\(s\)` successful cases and `\(m-s\)` failures.
+
+`$$ g_j = \begin{cases} 1 & r_j \quad\textrm{sucessful} \\ 0 & \textrm{otherwise} \end{cases} $$`
+
+$$ Z(\lambda) = se^{-\lambda} + (m-s) $$
+$$ Z^n(\lambda) = \sum_{r=0}^n\dbinom{n}{r}s^re^{-\lambda r}(m-s)^{n-r} \quad\rightarrow\quad M(n,G=r) = \dbinom{n}{r}s^r(m-s)^{n-r} $$
+
+Define `\(p=s/m\)`. Then it follows
+
+$$ \Pr(G=r \mid I_0) = \frac{M(n,G=r}{m^n} = \dbinom{n}{r}p^r(1-p)^{n-r} $$
+
+RED: But this is just the binomial distribution!
+
+---
+# Jaynes: binomial frequency distributions is poor robot reasoning
+
+![coffee](BLBC-ProbabilityTheory-Chapter9_files/binom1.png)
+![coffee](BLBC-ProbabilityTheory-Chapter9_files/binom2.png)
+---
+
+# Jaynes: binomial frequency distributions is poor robot reasoning
+![coffee](BLBC-ProbabilityTheory-Chapter9_files/binom3.png)
 
 ---
 # Some notes on logical induction
