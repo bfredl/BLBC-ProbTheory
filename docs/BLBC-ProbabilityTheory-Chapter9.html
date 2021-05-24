@@ -21,10 +21,14 @@
   .smol {
     max-width: 30%;
     display: block;
+    margin: auto;
   }
   .tradition {
     max-width: 90%;
     display: block;
+  }
+  .alert {
+    color: red;
   }
 </style>
   </head>
@@ -100,10 +104,17 @@ background-image: url(fig/pt-bookcover.jpg)
 background-position: right 50px bottom 50px
 background-size: 25%
 
-#Chapter 9. Repetetive Experiments - Probability and Frequency
+#Chapter 9. Repetitive Experiments - Probability and Frequency
 
 .pull-left[
 
+- how does probability as logic deal with repeated experiments?
+
+- Is induction (reasoning about the unknown using the known) possible at all?
+
+- Combinatorial reasoning using partition functions
+
+- Is frequentist probability just a poorly informed robot?
 
 
 ]
@@ -111,16 +122,29 @@ background-size: 25%
 ---
 # Probability *and* Frequency????
 
-- Jaynes notes: relative frequencies obey the  rules of probabability
+- Jaynes notes: relative frequencies obey the  rules of probability
 
 - `⇒` application of probability theory to frequencies is correct (and successful)!
 
-- The logical error of ortodox statistics is the conclusion that the theory *only* applies to frequencies
+- The logical error of orthodox statistics is the conclusion that the theory *only* applies to frequencies
+
+---
+# Notation: repeated experiment
+
+- We will consider `\(n\)` trials of some form which we know have `\(m\)` possible outcomes each
+
+- .alert[but nothing else is assumed]: no frequency distributions, correlations etc. (unless specified later)
+
+- `\(N=m^n\)` outcomes for the entire sequence is possible
+
+- Example: 10 throws of some kind of die:
+
+`$$ N=m^n=6^{10}=60466176 $$`
 
 ---
 # The logic of repeated experiments
 
-We have already observed the outcoume of `\(n\)` repeated experiments `\(r_k\)`. What do we know about `\(r_{n+1}\)` ?
+We have already observed the outcome of `\(n\)` repeated experiments `\(r_k\)`. What do we know about `\(r_{n+1}\)` ?
 
 $$ \Pr(r_{n+1} \mid r_1, \ldots, r_n) = ???  $$
 
@@ -135,9 +159,9 @@ In which case the sub and product rules gives
 ---
 # `\(I_0\)`: The poorly informed robot
 
-Consider we know nothing about the $n$ experiments other than they having `\(m\)` outcomes each (thus no information about how the experiments being related). By cominatorial reasoning, we have `\(m^N\)` outcomes for the entire sequence.
+If we know nothing about the `\(n\)` trials other than having `\(m\)` outcomes each (no information saying experiments are being related).
 
-By the principle of indifference:
+By the principle of indifference, the robot regards all `\(m^n\)` sequences as equally likely:
 
 $$ \Pr(r_1,r_2, \ldots, r_n \mid I_0) = \frac{1}{m^N} $$
 
@@ -147,9 +171,19 @@ $$ \Pr(r_{n+1}\mid r_1,r_2, \ldots, r_n, I_0) = \frac{1}{m} $$
 
 .smol[![Mr Jackpots](BLBC-ProbabilityTheory-Chapter9_files/poor_robot.png)]
 ---
+# Some notes on logical induction
+
+.nooou[![Dougie](BLBC-ProbabilityTheory-Chapter9_files/inductive1.png)]
+
+---
+# Some notes on logical induction
+
+.nooou[![Dougie](BLBC-ProbabilityTheory-Chapter9_files/inductive2.png)]
+---
 # Other states of information
 
 .whatever[![Case File](BLBC-ProbabilityTheory-Chapter9_files/beliefs.png)]
+
 
 ---
 # The Better Informed robot
@@ -200,9 +234,9 @@ $$ Z^n(\lambda) = \sum_{\{r_i\}} e^{-\lambda \sum_i g(r_i)} = \sum_G e^{-\lambda
 ---
 # use Z to reason with the poor robot
 
-- Example: Divide the `\(m\)` outomes into `\(s\)` successful cases and `\(m-s\)` failures.
+- Example: Divide the `\(m\)` outcomes into `\(s\)` successful cases and `\(m-s\)` failures.
 
-`$$ g_j = \begin{cases} 1 & r_j \quad\textrm{sucessful} \\ 0 & \textrm{otherwise} \end{cases} $$`
+`$$ g_j = \begin{cases} 1 & r_j \quad\textrm{successful} \\ 0 & \textrm{otherwise} \end{cases} $$`
 
 $$ Z(\lambda) = se^{-\lambda} + (m-s) $$
 $$ Z^n(\lambda) = \sum_{r=0}^n\dbinom{n}{r}s^re^{-\lambda r}(m-s)^{n-r} \quad\rightarrow\quad M(n,G=r) = \dbinom{n}{r}s^r(m-s)^{n-r} $$
@@ -211,7 +245,7 @@ Define `\(p=s/m\)`. Then it follows
 
 $$ \Pr(G=r \mid I_0) = \frac{M(n,G=r}{m^n} = \dbinom{n}{r}p^r(1-p)^{n-r} $$
 
-RED: But this is just the binomial distribution!
+.alert[But this is just the binomial distribution!]
 
 ---
 # Jaynes: binomial frequency distributions is poor robot reasoning
@@ -222,11 +256,6 @@ RED: But this is just the binomial distribution!
 
 # Jaynes: binomial frequency distributions is poor robot reasoning
 ![coffee](BLBC-ProbabilityTheory-Chapter9_files/binom3.png)
-
----
-# Some notes on logical induction
-
-POPPLERN
 
 ---
 # Probability and frequency: Jaynes' conclusions
@@ -258,16 +287,15 @@ POPPLERN
 - In summary he talks about three (somewhat related) things
 
   - connections between probability and frequency (in logical probability and otherwise)
-  - Priors for repeated experiments (unfinished work!)
-  - Combinatorical derivation of the partiton function algorithm
+  - Possibility of induction with priors for repeated experiments (unfinished work!)
+  - Combinatorial derivation of the partition function algorithm
 
 ---
 # Thanks!
 
-Slides created via the R packages [**xaringan**](https://github.com/yihui/xaringan),
-[**xaringanExtra**](https://github.com/gadenbuie/xaringanExtra) and [**xaringanthemer**](https://github.com/gadenbuie/xaringanthemer).
+Slides created via [**remark**](https://github.com/gnab/remark).
 
-The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+The chakra comes from [remark.js](https://remarkjs.com)
 
 ---
 # References
