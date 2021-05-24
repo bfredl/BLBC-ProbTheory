@@ -152,7 +152,7 @@ In jaynes logical formation, nothing unless we supply a prior state of informati
 
 `$$ \Pr(r_1, \ldots, r_n, r_{n+1} \mid I) = f(r_1, \ldots, r_n, r_{n+1})  $$`
 
-In which case the sub and product rules gives
+In which case the sum and product rules gives
 
 `$$ \Pr(r_{n+1} \mid I, r_1, \ldots, r_n) = \frac{f(r_1, \ldots, r_n, r_{n+1})}{\sum_{r=1}^{m}f(r_1, \ldots, r_n, r)}  $$`
 
@@ -163,7 +163,7 @@ If we know nothing about the `\(n\)` trials other than having `\(m\)` outcomes e
 
 By the principle of indifference, the robot regards all `\(m^n\)` sequences as equally likely:
 
-$$ \Pr(r_1,r_2, \ldots, r_n \mid I_0) = \frac{1}{m^N} $$
+$$ \Pr(r_1,r_2, \ldots, r_n \mid I_0) = \frac{1}{m^n} $$
 
 and thus for a specific trial:
 
@@ -205,7 +205,9 @@ $$ m=6,n=12 \rightarrow 2.18 \cdot 10^9 $$
 
 - Sometimes there's a value function: `\(g_i = g(r_i)\)`
 
-NOTE: let `\(g_i=E_i\)` and voila, statistical mechanics
+  - what the agent ''gains'' from a certain outcome
+  - energy(`\(\rightarrow\)` statistical mechanics)
+  - indicator for specific outcome `\(g(r_i)=\delta(r_i,k)\)`
 
 ---
 # Deriving the partition function
@@ -243,7 +245,7 @@ $$ Z^n(\lambda) = \sum_{r=0}^n\dbinom{n}{r}s^re^{-\lambda r}(m-s)^{n-r} \quad\ri
 
 Define `\(p=s/m\)`. Then it follows
 
-$$ \Pr(G=r \mid I_0) = \frac{M(n,G=r}{m^n} = \dbinom{n}{r}p^r(1-p)^{n-r} $$
+$$ \Pr(G=r \mid I_0) = \frac{M(n,G=r)}{m^n} = \dbinom{n}{r}p^r(1-p)^{n-r} $$
 
 .alert[But this is just the binomial distribution!]
 
@@ -282,7 +284,9 @@ $$ \Pr(G=r \mid I_0) = \frac{M(n,G=r}{m^n} = \dbinom{n}{r}p^r(1-p)^{n-r} $$
 ---
 # Some concluding thoughts
 
-- IMHO quite a messy chapter (due to circumstances we all know)
+- IMHO an important, but quite a messy chapter (due to circumstances we all know)
+
+  - Talks mostly about how you shouldn't think (the actual inductive reasoning come in later chapters)
 
 - In summary he talks about three (somewhat related) things
 
